@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :phoenix, :json_library, Poison
+
 config :entice_web,
   app_namespace: Entice.Web,
   client_version: (System.get_env("CLIENT_VERSION") || "MS11"),
