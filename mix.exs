@@ -9,8 +9,8 @@ defmodule Entice.Web.Mixfile do
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
-     deps: deps]
+     aliases: aliases(),
+     deps: deps()]
   end
 
   def application do
@@ -26,7 +26,7 @@ defmodule Entice.Web.Mixfile do
     [{:entice_logic, github: "entice/logic", ref: "e3a833c9197edbdb6c43ebffb02a2705ca13bad3"},
      {:entice_entity, github: "entice/entity", ref: "c26f6f77ae650e25e6cd2ffea8aae46b7d83966a"},
      {:entice_utils, github: "entice/utils", ref: "79ead4dca77324b4c24f584468edbaff2029eeab"},
-     {:cowboy, "~> 1.0"},
+     {:plug_cowboy, "~> 2.1"},
      {:phoenix, "~> 1.5.6-rc", override: true},
      {:phoenix_pubsub, "~> 2.0.0-rc"},
      {:phoenix_ecto, "~> 4.0.0-rc", override: true},
@@ -42,6 +42,6 @@ defmodule Entice.Web.Mixfile do
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test":  ["ecto.create --quiet", "ecto.migrate", "test"]]
+     test:  ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
 end
